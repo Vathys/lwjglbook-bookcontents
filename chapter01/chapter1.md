@@ -4,15 +4,15 @@ In this book we will learn the principal techniques involved in developing 3D ga
 
 LWJGL is a low level API that acts like a wrapper around OpenGL. If your idea is to start creating 3D games in a short period of time maybe you should consider other alternatives like  \[JmonkeyEngine\]. By using this low level API you will have to go through many concepts and write lots of lines of code before you see the results. The benefit of doing it this way is that you will get a much better understanding of 3D graphics and also you can get better control.
 
-As said in the previous paragraphs we will be using Java for this book. We will be using Java 9, so you need to download the Java SDK from Oracle’s pages. Just choose the installer that suits your Operating System and install it. This book assumes that you have a moderate understanding of the Java language.
+As said in the previous paragraphs we will be using Java for this book. We will be using Java 10, so you need to download the Java SDK from Oracle’s pages. Just choose the installer that suits your Operating System and install it. This book assumes that you have a moderate understanding of the Java language.
 
-You may use the Java IDE you want in order to run the samples. You can download IntelliJ IDEA which has good support for Java 9. Since Java 9 is only available, by now, for 64 bits platforms, remeber to download the 64 bits version of IntelliJ. IntelliJ provides a free open source version, the Community version, which you can download from here: [https://www.jetbrains.com/idea/download/](https://www.jetbrains.com/idea/download/ "Intellij").
+You may use the Java IDE you want in order to run the samples. You can download IntelliJ IDEA which has good support for Java 10. Since Java 10 is only available, by now, for 64 bits platforms, remeber to download the 64 bits version of IntelliJ. IntelliJ provides a free open source version, the Community version, which you can download from here: [https://www.jetbrains.com/idea/download/](https://www.jetbrains.com/idea/download/ "Intellij").
 
-![](/chapter1/intellij.png)
+![](/chapter01/intellij.png)
 
 For building our samples we will be using [Maven](https://maven.apache.org/). Maven is already integrated in most IDEs and you can directly open the different samples inside them. Just open the folder that contains the chapter sample and IntelliJ will detect that it is a maven project.
 
-![](/chapter1/maven_project.png)
+![](/chapter01/maven_project.png)
 
 Maven builds projects based on an XML file named `pom.xml` \(Project Object Model\) which manages project dependencies \(the libraries you need to use\) and the steps to be performed during the build process. Maven follows the principle of convention over configuration, that is, if you stick to the standard project structure and naming conventions the configuration file does not need to explicitly say where source files are or where compiled classes should be located.
 
@@ -73,7 +73,7 @@ Inside each project, the LWJGL platform dependency will use the correct property
 
 Besides that, every project generates a runnable jar \(one that can be executed by typing java -jar name\_of\_the\_jar.jar\). This is achieved by using the maven-jar-plugin which creates a jar with a `MANIFEST.MF` file with the correct values. The most important attribute for that file is `Main-Class`, which sets the entry point for the program. In addition, all the dependencies are set as entries in the `Class-Path` attribute for that file. In order to execute it on another computer, you just need to copy the main jar file and the lib directory \(with all the jars included there\) which are located under the target directory.
 
-The jars that contain LWJGL classes, also contain the native libraries. LWJGL will also take care of extracting them and adding them to the path where the JVM will lok for libraries.
+The jars that contain LWJGL classes, also contain the native libraries. LWJGL will also take care of extracting them and adding them to the path where the JVM will look for libraries.
 
 Chapter 1 source code is taken directly from the getting started sample in the LWJGL site \([http://www.lwjgl.org/guide](http://www.lwjgl.org/guide)\). You will see that we are not using Swing or JavaFX as our GUI library. Instead of that we are using [GLFW](www.glfw.org) which is a library to handle GUI components \(Windows, etc.\) and events \(key presses, mouse movements, etc.\) with an OpenGL context attached in a straightforward way. Previous versions of LWJGL provided a custom GUI API but, for LWJGL 3, GLFW is the preferred windowing API.
 
